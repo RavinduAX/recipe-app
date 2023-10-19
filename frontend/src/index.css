@@ -16,8 +16,9 @@ code {
     monospace;
 }
 
-/* @layer components {
-  .p-wrapper {
-    @apply ;
+@layer components {
+  .btnCategory {
+    @apply btn w-24 !rounded-full text-pink-dark border-2 border-pink-dark !bg-white hover:!bg-pink-dark hover:text-white checked:!bg-pink-dark checked:!text-white;
   }
-} */
+
+}
