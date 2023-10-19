@@ -15,3 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer components {
+  .p-wrapper {
+    @apply ps-3 pe-5 sm:ps-5 sm:pe-7 md:ps-20 md:pe-[88px] lg:ps-32 lg:pe-[136px];
+  }
+}
