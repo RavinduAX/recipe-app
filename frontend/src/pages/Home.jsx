@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import RecipeCard from "../components/RecipeCard";
 
 const Home = () => {
 
@@ -18,6 +19,10 @@ const Home = () => {
         <input type="radio" name="category" data-content="Lamb" className="btnCategory" value='lamb' onChange={(e)=>{setCategory(e.target.value)}}/>
         <input type="radio" name="category" data-content="Pasta" className="btnCategory" value='pasta' onChange={(e)=>{setCategory(e.target.value)}}/>
       </div>
+
+      <section>
+        <RecipeCard/>
+      </section>
     
     </section>
   </div>;
