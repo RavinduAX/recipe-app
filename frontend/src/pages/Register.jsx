@@ -9,10 +9,11 @@ const Register = () => {
       <input className="modal-state" id="modal-1" type="checkbox" />
       <div className="modal">
         <label className="modal-overlay" htmlFor="modal-1"></label>
-        <div className="modal-content flex w-5/6 flex-col gap-2 px-12 pb-14">
+
+        <div className="modal-content flex w-5/6 md:max-w-xl lg:max-w-3xl flex-col gap-2 px-12 pb-14">
           <label htmlFor="modal-1" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
           <div className="flex flex-col gap-9">
-            <img src={require('../assets/logo.png')} alt="logo" className="w-2/6 self-center mt-11" />
+            <img src={require('../assets/logo.png')} alt="logo" className="w-2/6 lg:w-1/6 self-center mt-11" />
             <h2 className="text-start text-[28px] text-dark">Register</h2>
           </div>
 
@@ -37,17 +38,17 @@ const Register = () => {
                   <input placeholder="Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
                   <input placeholder="Confirm Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
                 </div>
-                <span className="text-pink-dark text-xs font-medium">Please enter a password</span>
+                <span className="text-pink-dark text-xs font-medium">The password does not match</span>
               </div>
 
-              <div className="form-field pt-2">
+              <div className="form-field pt-4">
                 {/* sign in */}
                 <button type="button" className="btn w-full md:w-max bg-pink-dark rounded-md text-white shadow-xl text-sm">Create Account</button>
               </div>
             </div>
 
             {/* dont have account */}
-            <div className="items-center justify-center text-xs dark:text-gray-5 sm:px-6 flex gap-2 mt-8">
+            <div className="items-center justify-center text-xs dark:text-gray-5 sm:px-6 flex gap-2 mt-12">
               <span className="text-dark font-medium">Already have an account?</span>
               {/* register acc */}
               <a rel="/#" href="/#" className="link text-pink-dark font-medium text-xs">Login</a>
