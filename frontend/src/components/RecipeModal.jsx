@@ -9,7 +9,7 @@ const RecipeModal = () => {
       <input className="modal-state" id="modal-2" type="checkbox" />
       <div className="modal w-screen">
         <label className="modal-overlay" htmlFor="modal-2"></label>
-        <div className="modal-content flex flex-col gap-5 max-w-3xl">
+        <div className="modal-content flex flex-col gap-5 max-w-3xl px-8">
           <label htmlFor="modal-2" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
           {/* title */}
           <div className="flex items-center gap-5 mb-2 hover:cursor-default">
