@@ -15,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer components {
+  .btnCategory {
+    @apply btn w-24 !rounded-full text-pink-dark border-2 border-pink-dark !bg-white hover:!bg-pink-dark hover:text-white checked:!bg-pink-dark checked:!text-white;
+  }
+
+}
