@@ -1,4 +1,5 @@
 import './App.css';
+import Favourite from './pages/Favourite';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -8,7 +9,8 @@ function App() {
     <div>
       {/* <Login/> */}
       {/* <Register/> */}
-      <Home/>
+      {/* <Home/> */}
+      <Favourite/>
     </div>
   );
 }
