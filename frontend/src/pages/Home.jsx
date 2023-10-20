@@ -6,8 +6,6 @@ const Home = () => {
 
   const [category, setCategory] = useState('')
 
-
-
   return <div>
     <Navbar />
     <section className="bg-pink-light h-[calc(100vh-60px)] lg:h-[calc(100vh-64px)]">
@@ -20,7 +18,28 @@ const Home = () => {
         <input type="radio" name="category" data-content="Pasta" className="btnCategory" value='pasta' onChange={(e)=>{setCategory(e.target.value)}}/>
       </div>
 
-      <section>
+      <section className="flex flex-wrap gap-10 items-center justify-center">
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
+        <RecipeCard/>
         <RecipeCard/>
       </section>
     
