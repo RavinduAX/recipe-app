@@ -1,4 +1,5 @@
 import './App.css';
+import RecipeModal from './components/RecipeModal';
 import Favourite from './pages/Favourite';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,7 +11,8 @@ function App() {
       {/* <Login/> */}
       {/* <Register/> */}
       {/* <Home/> */}
-      <Favourite/>
+      {/* <Favourite/> */}
+      <RecipeModal/>
     </div>
   );
 }
