@@ -8,7 +8,7 @@ const Home = () => {
 
   return <div>
     <Navbar />
-    <section className="bg-pink-light h-max px-32 pt-8 pb-20">
+    <section className="bg-pink-light h-max px-5 lg:px-32 pt-8 pb-20">
       {/* button group */}
       <div className="btn-group btn-group-scrollable gap-3 mb">
         <input type="radio" name="category" data-content="Pork" className="btnCategory" value='pork' onChange={(e)=>{setCategory(e.target.value)}} defaultChecked/>
@@ -18,7 +18,7 @@ const Home = () => {
         <input type="radio" name="category" data-content="Pasta" className="btnCategory" value='pasta' onChange={(e)=>{setCategory(e.target.value)}}/>
       </div>
 
-      <section className="flex flex-wrap items-center justify-between gap-x-10 gap-y-10 mt-14">
+      <section className="flex flex-wrap items-center justify-between lg:gap-x-10 gap-y-10 mt-14">
         <RecipeCard/>
         <RecipeCard/>
         <RecipeCard/>
