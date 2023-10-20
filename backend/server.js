@@ -17,6 +17,7 @@ app.use(cors());
 //connect with db
 mongoose.connect(DB_URI)
   .then(() => {
+    //listen for requests
     app.listen(PORT, () => {
       logger.info(`Server UP : ${PORT}`);
     })
@@ -25,4 +26,4 @@ mongoose.connect(DB_URI)
   .catch((err) => {
     logger.error(err.message)
   })
-//listen for requests
+
