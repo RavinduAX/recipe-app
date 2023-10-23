@@ -10,9 +10,9 @@ function App() {
     <div>
       {/* <Login/> */}
       {/* <Register/> */}
-      {/* <Home/> */}
+      <Home/>
       {/* <Favourite/> */}
-      <RecipeModal/>
+      {/* <RecipeModal/> */}
     </div>
   );
 }
