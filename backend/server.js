@@ -7,12 +7,17 @@ const mongoose = require('mongoose')
 const PORT = process.env.PORT;
 const DB_URI = process.env.DB_URL;
 
+const userRoutes = require('./routes/user')
+
 //express app
 const app = express();
 
 //middleware
 app.use(express.json());
 app.use(cors());
+
+//routes
+app.use('/api/v1/recipe', userRoutes)
 
 //connect with db
 mongoose.connect(DB_URI)
