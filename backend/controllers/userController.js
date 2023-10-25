@@ -76,7 +76,7 @@ const deleteRecipe = async (req, res) => {
   const userId = req.params.id
   const recipeId = req.query.r_id
 
-  await User.findByIdAndUpdate(userId, { $pull: { favourite: {recipeId} } })
+  await User.findByIdAndUpdate(userId, { $pull: { favourite: recipeId } })
     .then(() => {
       logger.info('Recipe deleted')
       return res.status(201).json({ status: true, msg: 'Recipe deleted', payload: null })
@@ -85,8 +85,6 @@ const deleteRecipe = async (req, res) => {
       logger.error(err.message)
       return res.status(400).json({ status: false, msg: '', payload: err.message })
     })
-
-  
 }
 
 module.exports = { createUser, getUserRecipe, updateRecipe, deleteRecipe }
