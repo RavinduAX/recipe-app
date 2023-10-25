@@ -48,10 +48,23 @@ const getUserRecipe = async (req, res) => {
     .then((user) => {
       return res.status(201).json({ status: true, msg: 'Get user recipe done', payload: user })
     })
-    .catch((err) => { 
+    .catch((err) => {
       return res.status(400).json({ status: false, msg: '', payload: err.message })
-   })
+    })
 }
 
+//update recipes of user
+const updateRecipe = async (req, res) => {
+  const userId = req.params.id
+  const {favourite} = req.body
 
-module.exports = { createUser, getUserRecipe }
+  await User.findByIdAndUpdate(userId, { $push:{favourite:{$each: favourite}}}, {new: true})
+    .then(() => {
+      return res.status(201).json({ status: true, msg: 'User updated', payload: null })
+    })
+    .catch((err) => {
+      return res.status(400).json({ status: false, msg: '', payload: err.message })
+    })
+}
+
+module.exports = { createUser, getUserRecipe, updateRecipe }
