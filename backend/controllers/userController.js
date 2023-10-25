@@ -41,10 +41,17 @@ const createUser = async (req, res) => {
     })
 }
 
-//get all users
-const getUsers = async (req, res) => {
-  
+//get recipe from user
+const getUserRecipe = async (req, res) => {
+  const userId = req.params.id;
+  await User.findById(userId)
+    .then((user) => {
+      return res.status(201).json({ status: true, msg: 'Get user recipe done', payload: user })
+    })
+    .catch((err) => { 
+      return res.status(400).json({ status: false, msg: '', payload: err.message })
+   })
 }
 
 
-module.exports = { createUser, getUsers }
+module.exports = { createUser, getUserRecipe }
