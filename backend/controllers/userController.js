@@ -55,12 +55,12 @@ const getUserRecipe = async (req, res) => {
     })
 }
 
-//update recipes of user
-const updateRecipe = async (req, res) => {
+//add recipes of user
+const addRecipe = async (req, res) => {
   const userId = req.params.id
-  const { favourite } = req.body
+  const recipeId = req.query.r_id
 
-  await User.findByIdAndUpdate(userId, { $push: { favourite: { $each: favourite } } }, { new: true })
+  await User.findByIdAndUpdate(userId, { $push: { favourite: recipeId } })
     .then(() => {
       logger.info('Recipe updated')
       return res.status(201).json({ status: true, msg: 'Recipe updated', payload: null })
@@ -87,4 +87,4 @@ const deleteRecipe = async (req, res) => {
     })
 }
 
-module.exports = { createUser, getUserRecipe, updateRecipe, deleteRecipe }
+module.exports = { createUser, getUserRecipe, addRecipe, deleteRecipe }
