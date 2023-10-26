@@ -1,5 +1,6 @@
 const User = require('../models/userModel')
 const logger = require('../utils/logger')
+const bcrypt = require('bcrypt');
 
 //create a new user
 const createUser = async (req, res) => {
@@ -16,29 +17,32 @@ const createUser = async (req, res) => {
   } else if (!newUser.password) {
     empty.push("password")
   }
-
   if (empty.length > 0) {
     logger.info("1")
     return res.status(400).json({ status: false, msg: 'Please fill in all the fields!', payload: empty })
   }
 
-  // validate if user exists
-  // await User.findOne({ email: newUser.email })
-  //   .then((user) => {
-  //     return res.status(400).json({ status: false, msg: 'User already exists!', payload: user.name })
-  //   })
-
-  //create user
-  await User.create(newUser)
-    .then(() => {
-      res.status(201).json({ status: true, msg: 'User create successfull', payload: null })
-      logger.info("User created")
-      empty = []
-    })
-    .catch((err) => {
-      res.status(500).json({ status: false, msg: 'User create failed!', payload: err.message })
-      logger.error(err.message)
-    })
+  //hashing pswrd
+  const password = newUser.password
+  bcrypt.hash(password, 10, (err, hash) => {
+    if (err) {
+      logger.info("Hashing Error")
+      return res.status(500).json({ status: false, msg: 'Hashing Error', payload: empty })
+    } else {
+      const userObj = {...newUser, password:hash}
+      //create user
+      User.create(userObj)
+        .then(() => {
+          res.status(201).json({ status: true, msg: 'User create successfull', payload: null })
+          logger.info("User created")
+          empty = []
+        })
+        .catch((err) => {
+          res.status(500).json({ status: false, msg: 'User create failed!', payload: err.message })
+          logger.error(err.message)
+        })
+    }
+  });
 }
 
 //get recipe from user
