@@ -18,7 +18,6 @@ const createUser = async (req, res) => {
     empty.push("password")
   }
   if (empty.length > 0) {
-    logger.info("1")
     return res.status(400).json({ status: false, msg: 'Please fill in all the fields!', payload: empty })
   }
 
@@ -29,7 +28,7 @@ const createUser = async (req, res) => {
       logger.info("Hashing Error")
       return res.status(500).json({ status: false, msg: 'Hashing Error', payload: empty })
     } else {
-      const userObj = {...newUser, password:hash}
+      const userObj = { ...newUser, password: hash }
       //create user
       User.create(userObj)
         .then(() => {
@@ -91,4 +90,22 @@ const deleteRecipe = async (req, res) => {
     })
 }
 
-module.exports = { createUser, getUserRecipe, addRecipe, deleteRecipe }
+// login user
+const loginUser = async (req, res) => {
+  const { username, password } = req.body
+
+  await User.findOne({ email: username })
+    .then((user) => {
+      if (!user) {
+        return res.status(400).json({ status: false, msg: 'User not found!', payload: empty })
+      }
+      
+    })
+    .catch((err) => {
+      logger.error(err.message);
+      return res.status(400).json({ status: false, msg: '', payload: err.message })
+    })
+
+}
+
+module.exports = { createUser, getUserRecipe, addRecipe, deleteRecipe, loginUser }
