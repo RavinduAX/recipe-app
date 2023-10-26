@@ -97,9 +97,20 @@ const loginUser = async (req, res) => {
   await User.findOne({ email: username })
     .then((user) => {
       if (!user) {
-        return res.status(400).json({ status: false, msg: 'User not found!', payload: empty })
+        return res.status(400).json({ status: false, msg: 'User not found!', payload: null })
       }
-      
+      bcrypt.compare(password, user.password)
+        .then((isValid) => {
+          if (isValid) {
+            return res.status(200).json({ status: false, msg: 'Authentication successful!', payload: null })
+          } else {
+            return res.status(401).json({ status: false, msg: 'Authentication failed!', payload: null })
+          }
+        })
+        .catch((err) => {
+          logger.error(err.message);
+          return res.status(400).json({ status: false, msg: '', payload: err.message })
+        })
     })
     .catch((err) => {
       logger.error(err.message);
