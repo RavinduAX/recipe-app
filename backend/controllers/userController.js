@@ -63,7 +63,7 @@ const addRecipe = async (req, res) => {
   const userId = req.params.id
   const recipeId = req.query.r_id
 
-  await User.findByIdAndUpdate(userId, { $push: { favourite: recipeId } })
+  await User.findByIdAndUpdate(userId, { $addToSet: { favourite: recipeId } })
     .then(() => {
       logger.info('Recipe updated')
       return res.status(201).json({ status: true, msg: 'Recipe updated', payload: null })
