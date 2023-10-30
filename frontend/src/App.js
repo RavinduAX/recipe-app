@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import RecipeModal from './components/RecipeModal';
 import Favourite from './pages/Favourite';
@@ -10,7 +11,13 @@ function App() {
     <div>
       {/* <Login/> */}
       {/* <Register/> */}
-      <Home/>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          {/* <Route path='/login' element={<Login/>}/> */}
+        </Routes>
+      </BrowserRouter>
+
       {/* <Favourite/> */}
       {/* <RecipeModal/> */}
     </div>

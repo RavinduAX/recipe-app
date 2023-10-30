@@ -3,14 +3,12 @@ import React from "react";
 const Login = () => {
   return (
     <article>
-      {/* button */}
-      <label className="btn btn-primary" htmlFor="modal-1">Open Modal</label>
       {/* login screen */}
-      <input className="modal-state" id="modal-1" type="checkbox" />
+      <input className="modal-state" id="loginModal" type="checkbox" />
       <div className="modal">
-        <label className="modal-overlay" htmlFor="modal-1"></label>
+        <label className="modal-overlay" htmlFor='loginModal'></label>
         <div className="modal-content flex w-5/6 sm:w-4/6 lg:w-2/6 flex-col gap-2 px-12 pb-14">
-          <label htmlFor="modal-1" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+          <label htmlFor="loginModal" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
           <div className="flex flex-col gap-9">
             <img src={require('../assets/logo.png')} alt="logo" className="w-2/6 self-center mt-11" />
             <h2 className="text-start text-[28px] text-dark">Login</h2>
