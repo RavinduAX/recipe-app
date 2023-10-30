@@ -3,15 +3,15 @@ import React from "react";
 const Register = () => {
   return (
     <article>
-      {/* button */}
-      <label className="btn btn-primary" htmlFor="modal-1">Open Modal</label>
+      {/* button
+      // <label className="btn btn-primary" htmlFor="modal-1">Open Modal</label> */}
       {/* login screen */}
-      <input className="modal-state" id="modal-1" type="checkbox" />
+      <input className="modal-state" id="registerModal" type="checkbox" />
       <div className="modal">
-        <label className="modal-overlay" htmlFor="modal-1"></label>
+        <label className="modal-overlay" htmlFor="registerModal"></label>
 
         <div className="modal-content flex w-5/6 md:max-w-xl lg:max-w-3xl flex-col gap-2 px-12 pb-14">
-          <label htmlFor="modal-1" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+          <label htmlFor="registerModal" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
           <div className="flex flex-col gap-9">
             <img src={require('../assets/logo.png')} alt="logo" className="w-2/6 lg:w-1/6 self-center mt-11" />
             <h2 className="text-start text-[28px] text-dark">Register</h2>
@@ -51,7 +51,8 @@ const Register = () => {
             <div className="items-center justify-center text-xs dark:text-gray-5 sm:px-6 flex gap-2 mt-12">
               <span className="text-dark font-medium">Already have an account?</span>
               {/* register acc */}
-              <a rel="/#" href="/#" className="link text-pink-dark font-medium text-xs">Login</a>
+              {/* <a rel="/#" href="/#" className="link text-pink-dark font-medium text-xs">Login</a> */}
+              <label className="modal-close link text-pink-dark font-medium text-xs hover:text-[#e36b8b]" htmlFor="registerModal">Login</label>
             </div>
           </section>
         </div>

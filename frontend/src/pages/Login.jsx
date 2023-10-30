@@ -1,7 +1,9 @@
 import React from "react";
+import Register from "./Register";
 
 const Login = () => {
   return (
+    <>
     <article>
       {/* login screen */}
       <input className="modal-state" id="loginModal" type="checkbox" />
@@ -42,13 +44,17 @@ const Login = () => {
             {/* dont have account */}
             <div className="items-center justify-center text-xs dark:text-gray-5 sm:px-6 flex gap-2 mt-8">
               <span className="text-dark font-medium">Don't have an account?</span>
-              {/* register acc */}
-              <a rel="/#" href="/#" className="link text-pink-dark font-medium text-xs">Create an account</a>
+              {/* register modal */}
+                <label className="link text-pink-dark font-medium text-xs hover:text-[#e36b8b]" htmlFor="registerModal">Create an account</label>
             </div>
           </section>
         </div>
       </div>
-    </article>
+      </article>
+
+    <Register/>
+
+    </>
   )
 };
 

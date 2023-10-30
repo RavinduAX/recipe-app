@@ -1,6 +1,5 @@
 import React from "react";
 import { UserCircleIcon } from '@heroicons/react/24/solid'
-import { Link } from "react-router-dom";
 import Login from "../pages/Login";
 
 const Navbar = () => {
