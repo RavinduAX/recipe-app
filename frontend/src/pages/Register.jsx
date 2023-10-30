@@ -3,8 +3,6 @@ import React from "react";
 const Register = () => {
   return (
     <article>
-      {/* button
-      // <label className="btn btn-primary" htmlFor="modal-1">Open Modal</label> */}
       {/* login screen */}
       <input className="modal-state" id="registerModal" type="checkbox" />
       <div className="modal">
@@ -50,8 +48,7 @@ const Register = () => {
             {/* dont have account */}
             <div className="items-center justify-center text-xs dark:text-gray-5 sm:px-6 flex gap-2 mt-12">
               <span className="text-dark font-medium">Already have an account?</span>
-              {/* register acc */}
-              {/* <a rel="/#" href="/#" className="link text-pink-dark font-medium text-xs">Login</a> */}
+              {/* register modal */}
               <label className="modal-close link text-pink-dark font-medium text-xs hover:text-[#e36b8b]" htmlFor="registerModal">Login</label>
             </div>
           </section>
