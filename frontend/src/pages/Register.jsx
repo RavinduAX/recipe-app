@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Register = () => {
+
+  const[fName, setFName] = useState('')
+  const[lName, setLName] = useState('')
+  const[email, setEmail] = useState('')
+  const[contactNo, setContactNo] = useState('')
+  const[password, setPassword] = useState('')
+  const [cPassword, setCPassword] = useState('')
+
+  const user = {fName, lName, email, contactNo, password, cPassword}
+  
+  const createUserAcc = (e) => { 
+    console.log(user)
+   }
+
   return (
     <article>
       {/* login screen */}
@@ -20,28 +34,28 @@ const Register = () => {
 
               {/* name */}
               <div className="form-field sm:flex-row sm:gap-3">
-                <input placeholder="First name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
-                <input placeholder="Last name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setFName(e.target.value) }} placeholder="First name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setLName(e.target.value) }} placeholder="Last name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
               </div>
 
               {/* email, contact no */}
               <div className="form-field sm:flex-row sm:gap-3">
-                <input placeholder="Email address" type="email" className="input max-w-full rounded-md text-sm border-grey border" />
-                <input placeholder="Contact no" type="tel" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setEmail(e.target.value) }} placeholder="Email address" type="email" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setContactNo(e.target.value) }} placeholder="Contact no" type="tel" className="input max-w-full rounded-md text-sm border-grey border" />
               </div>
 
               {/* password */}
               <div className="form-field">
                 <div className="form-control flex-col sm:flex-row sm:gap-3">
-                  <input placeholder="Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
-                  <input placeholder="Confirm Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
+                  <input onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
+                  <input onChange={(e) => { setCPassword(e.target.value) }} placeholder="Confirm Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
                 </div>
                 <span className="text-pink-dark text-xs font-medium">The password does not match</span>
               </div>
 
               <div className="form-field pt-4">
                 {/* sign in */}
-                <button type="button" className="btn w-full md:w-max bg-pink-dark rounded-md text-white shadow-xl text-sm">Create Account</button>
+                <button onClick={createUserAcc} type="button" className="btn w-full md:w-max bg-pink-dark rounded-md text-white shadow-xl text-sm">Create Account</button>
               </div>
             </div>
 
