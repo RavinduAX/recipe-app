@@ -2,18 +2,27 @@ import React, { useState } from "react";
 
 const Register = () => {
 
-  const[fName, setFName] = useState('')
-  const[lName, setLName] = useState('')
-  const[email, setEmail] = useState('')
-  const[contactNo, setContactNo] = useState('')
-  const[password, setPassword] = useState('')
+  const [fName, setFName] = useState('')
+  const [lName, setLName] = useState('')
+  const [email, setEmail] = useState('')
+  const [contactNo, setContactNo] = useState('')
+  const [password, setPassword] = useState('')
   const [cPassword, setCPassword] = useState('')
 
-  const user = {fName, lName, email, contactNo, password, cPassword}
-  
-  const createUserAcc = (e) => { 
-    console.log(user)
-   }
+  const [pswdInfo, setPswdInfo] = useState('')
+
+  const user = { fName, lName, email, contactNo, password, cPassword }
+
+  const createUserAcc = (e) => {
+    e.preventDefault()
+    if (password !== cPassword) {
+      return setPswdInfo('The password does not match')
+    } else {
+      console.log(user)
+      setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
+    }
+
+  }
 
   return (
     <article>
@@ -34,23 +43,23 @@ const Register = () => {
 
               {/* name */}
               <div className="form-field sm:flex-row sm:gap-3">
-                <input onChange={(e) => { setFName(e.target.value) }} placeholder="First name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
-                <input onChange={(e) => { setLName(e.target.value) }} placeholder="Last name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setFName(e.target.value) }} value={fName} placeholder="First name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setLName(e.target.value) }} value={lName} placeholder="Last name" type="text" className="input max-w-full rounded-md text-sm border-grey border" />
               </div>
 
               {/* email, contact no */}
               <div className="form-field sm:flex-row sm:gap-3">
-                <input onChange={(e) => { setEmail(e.target.value) }} placeholder="Email address" type="email" className="input max-w-full rounded-md text-sm border-grey border" />
-                <input onChange={(e) => { setContactNo(e.target.value) }} placeholder="Contact no" type="tel" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setEmail(e.target.value) }} value={email} placeholder="Email address" type="email" className="input max-w-full rounded-md text-sm border-grey border" />
+                <input onChange={(e) => { setContactNo(e.target.value) }} value={contactNo} placeholder="Contact no" type="tel" className="input max-w-full rounded-md text-sm border-grey border" />
               </div>
 
               {/* password */}
               <div className="form-field">
                 <div className="form-control flex-col sm:flex-row sm:gap-3">
-                  <input onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
-                  <input onChange={(e) => { setCPassword(e.target.value) }} placeholder="Confirm Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
+                  <input onChange={(e) => { setPassword(e.target.value) }} value={password} placeholder="Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
+                  <input onChange={(e) => { setCPassword(e.target.value) }} value={cPassword} placeholder="Confirm Password" type="password" className="input max-w-full rounded-md text-sm border-grey border" />
                 </div>
-                <span className="text-pink-dark text-xs font-medium">The password does not match</span>
+                <span className="text-pink-dark text-xs font-medium">{pswdInfo}</span>
               </div>
 
               <div className="form-field pt-4">
