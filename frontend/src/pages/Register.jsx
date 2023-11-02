@@ -40,7 +40,7 @@ const Register = () => {
           alert(err.msg)
           console.log(err.msg);
         })
-      // setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
+      setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
     }
   }
 
