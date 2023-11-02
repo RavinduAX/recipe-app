@@ -31,13 +31,11 @@ const Register = () => {
         .then((res) => {
           if (res.data.status) {
             alert(res.data.msg)
-          } else {
-            alert(res.data.msg)
+            setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
           }
         }).catch((err) => {
-          alert(err)
+          alert(err.response.data.msg)
         })
-      setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
     }
   }
 
