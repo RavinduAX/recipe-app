@@ -102,8 +102,10 @@ const loginUser = async (req, res) => {
       bcrypt.compare(password, user.password)
         .then((isValid) => {
           if (isValid) {
-            return res.status(200).json({ status: false, msg: 'Authentication successful!', payload: null })
+            logger.info('User logged')
+            return res.status(200).json({ status: true, msg: 'Authentication successful!', payload: null })
           } else {
+            logger.info('User loggin fail')
             return res.status(401).json({ status: false, msg: 'Authentication failed!', payload: null })
           }
         })
