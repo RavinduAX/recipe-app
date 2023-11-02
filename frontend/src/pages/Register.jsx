@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios'
 
 const Register = () => {
 
@@ -11,17 +12,36 @@ const Register = () => {
 
   const [pswdInfo, setPswdInfo] = useState('')
 
-  const user = { fName, lName, email, contactNo, password, cPassword }
-
   const createUserAcc = (e) => {
     e.preventDefault()
     if (password !== cPassword) {
       return setPswdInfo('The password does not match')
     } else {
-      console.log(user)
-      setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
+      const user = {
+        name: {
+          firstname: fName,
+          lastname: lName
+        },
+        email: email,
+        contactNo: contactNo,
+        password: password,
+        favourite:[]
+      }
+      axios.post('http://localhost:5000/api/v1/recipe/', user)
+        .then((res) => {
+          if (res.data.status) {
+            alert(res.data.msg)
+            console.log(res.data.msg);
+          } else {
+            alert(res.data.msg)
+            console.log(res.data.msg);
+          }
+        }).catch((err) => {
+          alert(err.msg)
+          console.log(err.msg);
+        })
+      // setPswdInfo(''); setFName(''); setLName(''); setEmail(''); setContactNo(''); setPassword(''); setCPassword('');
     }
-
   }
 
   return (
